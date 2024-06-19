@@ -1,0 +1,23 @@
+ligação do banco de dados do mongodb com o electron
+Passo 1:
+Ter um servidor dom banco de dados com o electro 
+-local (instalado com o windows)
+- fisico (baseado no linux )em uma rede local(switch)
+- nuvem (atlas (540MB AWS))
+passo 2:
+instalar o mongoose (fremework para trabalhar o mongoDB)
+Passo 3:
+Criar um arquivo dataBase.js na raiz e confgurar a conexão com o banco de dados
+Passo 4:
+Importar no main os metodos para conectar e desconectar o banco de dados
+Passo 5:
+Na janela principal deixar o objeto win público (gerenciar o banco)
+Passo 6:
+Criar uma função para verificar um status de conexão(criar na ultima linha) este passo poderia estar junto com o app.whenReady(),
+questão de organização e melhor entendimento foi criado fora 
+Passo 7:
+dentro do app.whenReady() executar a função statusConexão
+Passo 8:
+Dentro do app.whenReady() (inportate)
+criar um metodo para desconectar o banco de dados ao encerrar a janelaprincipal for fechada
+
