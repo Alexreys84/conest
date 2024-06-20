@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONEST - controle de estoque</title>
+    <!--css personalizado-->
+    <link rel="stylesheet" href="../public/css/style.css">  
+    <!--bootstrap-->
+      <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+      
 </head>
 <body>
+  <div class="container">
     <h1>CONEST</h1>
+  </div>
+<div class="container container1">
+  <ul>
+    <li>
+      <button onclick="cliente()"><img src="../public/img/clientes.png" width="128px" height="128px"></button>      
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <button onclick="fornecedor()"><img src="../public/img/fornecedor.png"></button>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <button onclick="produtos()"><img src="../public/img/produtos.png"></button>
+    </li>
+  </ul>
+</div>
+      <!--Rodapé-->
+      <footer> <p id="data"></p></footer>
+      <script src="../public/js/bootstrap.min.js"></script>
     <script src="renderer.js"></script>
     
 </body>

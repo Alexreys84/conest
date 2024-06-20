@@ -42,6 +42,82 @@ const aboutWindow = () => {
         about = null
     })
 }
+
+let clientes// resolver bug de arbertura de várias janelas (bug1) abrir
+ 
+const clientesWindow = () => {
+    // nativeTheme.themeSource = 'dark'
+    // se a janela about não estiver aberta
+    if (!clientes) {
+        clientes = new BrowserWindow({
+            width: 360, // largura  da janela
+            height: 220, // altura da janela
+            icon: './src/public/img/pc.png',
+            resizable: false, // evitar o redimensionamneto
+            // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+            autoHideMenuBar: true // esconder o menu(apenas)
+ 
+        })
+    }
+ 
+ 
+    clientes.loadFile('./src/views/clientes.html')
+    // bug 2 (reabrir a janela se estiver fechada)
+    clientes.on('closed', () => {
+        clientes = null
+    })
+}
+let fornecedor// resolver bug de arbertura de várias janelas (bug1) abrir
+ 
+const fornecedorWindow = () => {
+    // nativeTheme.themeSource = 'dark'
+    // se a janela about não estiver aberta
+    if (!fornecedor) {
+        fornecedor = new BrowserWindow({
+            width: 360, // largura  da janela
+            height: 220, // altura da janela
+            icon: './src/public/img/pc.png',
+            resizable: false, // evitar o redimensionamneto
+            // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+            autoHideMenuBar: true // esconder o menu(apenas)
+ 
+        })
+    }
+ 
+ 
+    fornecedor.loadFile('./src/views/fornecedor.html')
+    // bug 2 (reabrir a janela se estiver fechada)
+    fornecedor.on('closed', () => {
+        fornecedor = null
+    })
+}
+let produto// resolver bug de arbertura de várias janelas (bug1) abrir
+ 
+const produtoWindow = () => {
+    // nativeTheme.themeSource = 'dark'
+    // se a janela about não estiver aberta
+    if (!produto) {
+        produto = new BrowserWindow({
+            width: 360, // largura  da janela
+            height: 220, // altura da janela
+            icon: './src/public/img/pc.png',
+            resizable: false, // evitar o redimensionamneto
+            // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+            autoHideMenuBar: true // esconder o menu(apenas)
+ 
+        })
+    }
+ 
+ 
+    produto.loadFile('./src/views/produto.html')
+    // bug 2 (reabrir a janela se estiver fechada)
+    produto.on('closed', () => {
+        produto = null
+    })
+}
+
+
+
 // iniciar a aplicação
 app.whenReady().then(() => {
 
@@ -63,37 +139,78 @@ app.whenReady().then(() => {
         }
     })
 })
-// template do menu personalizado
+// criando um template do menu personalizado
 const template = [
     {
-
-        label: 'arquivo',
-        submenu: [{
-            label: 'sair',
-            click: () => app.quit(),
-            accelerator: 'Alt+F4'
-        }
-        ]
-
+      label: 'Arquivo',
+      submenu: [
+        {
+          label: 'Sair',
+          click: () => app.quit(),
+          accelerator: 'Alt+f4'
+        },
+        {
+          label:'Clientes',
+          click: () => clientesWindow()
+        },
+        {label:'Fornecedores',
+        click: () => fornecedorWindow()
+      },
+      {
+        label:'Produtos',
+        click: () => produtoWindow()
+      },
+      ]
+  
     },
     {
-        label: 'ajuda',
-        submenu: [
-            {
-                label: 'sobre',
-                click: () => aboutWindow()
-            }
-        ]
+  
+      label: 'Exibir',
+      submenu: [{
+        label: 'Recarregar',
+        role: 'reload'
+      },
+      {
+        label: 'ferramentas',
+        role: 'toggledevTools'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Aplicar zoom',
+        role: 'zoomIn'
+      },
+      {
+        label: 'Reduzir zoom',
+        role: 'zoomOut'
+      },
+      {
+        label: 'Restaurar o zoom padrão',
+        role: 'resetZoom'
+      }
+      ]
+  
+    },
+    {
+      label: 'Ajuda',
+      submenu: [
+        {
+          label: 'docs',
+          accelerator: 'Alt+f1',
+          click: () => shell.openExternal('https://www.electronjs.org/docs/latest/'),
+        },
+        {
+          type: 'separator',
+        },
+        {
+          label: 'Sobre',
+  
+          click: () => aboutWindow()
+        }
+      ]
     }
-
-]
-
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
-})
-
+  ]
 // ----------------------------------------------------
 // Função que verifica o status da conexão
 const statusConexao = async () => {
