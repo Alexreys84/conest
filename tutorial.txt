@@ -20,4 +20,12 @@ dentro do app.whenReady() executar a função statusConexão
 Passo 8:
 Dentro do app.whenReady() (inportate)
 criar um metodo para desconectar o banco de dados ao encerrar a janelaprincipal for fechada
+--------------------------------------------------------------------------------------
+aula 03)
+Relacão de Janela (parent-child) e modal
+- Foco do Usuario no sistema 
+- Segurança e desempenho 
+
+Passo 1: Determinar a Janela pai (principal)
+Passo:2 Criar o relacionamento entre as Janelas.
 

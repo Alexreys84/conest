@@ -15,3 +15,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const dataAtual = document.getElementById('data').innerHTML =
     obterData()
 })
+//Função que e executada quando o botao for clicado
+function sobre(){
+    api.openAbout()
+  
+}
+//Função que e executada quando o botao for clicado
+function clientes(){
+    api.openclientes()
+  
+}
+//Função que e executada quando o botao for clicado
+function fornecedor(){
+    api.openfornecedor()
+  
+}
+//Função que e executada quando o botao for clicado
+function Produtos(){
+    api.openprodutos()
+  
+}

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- evitar ataques de Cross Site Scripting (injeção de dados)-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <title>CONEST - controle de estoque</title>
     <!--css personalizado-->
     <link rel="stylesheet" href="../public/css/style.css">  
@@ -13,26 +15,16 @@
 <body>
   <div class="container">
     <h1>CONEST</h1>
+    <button class="btn btn-outline-warnig" onclick="clientes()"><img src="../public/img/clientes.png"alt="clientes"></button>
+    <button class="btn btn-outline-warnig" onclick="fornecedor()"><img src="../public/img/fornecedor.png"alt="fornecedor"></button>
+    <button class="btn btn-outline-warnig" onclick="produtos()"><img src="../public/img/produtos.png"alt="produtos"></button>
   </div>
-<div class="container container1">
-  <ul>
-    <li>
-      <button onclick="cliente()"><img src="../public/img/clientes.png" width="128px" height="128px"></button>      
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <button onclick="fornecedor()"><img src="../public/img/fornecedor.png"></button>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <button onclick="produtos()"><img src="../public/img/produtos.png"></button>
-    </li>
-  </ul>
-</div>
+
       <!--Rodapé-->
-      <footer> <p id="data"></p></footer>
+      <footer> <p id="data"></p>
+      <img src="../public/img/dboff.png"alt="dboff">
+      </footer>
+
       <script src="../public/js/bootstrap.min.js"></script>
     <script src="renderer.js"></script>
     
