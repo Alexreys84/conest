@@ -31,7 +31,7 @@ function fornecedor(){
   
 }
 //Função que e executada quando o botao for clicado
-function Produtos(){
+function produtos(){
     api.openprodutos()
   
 }

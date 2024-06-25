@@ -10,9 +10,9 @@ ipcRenderer.on('db-status',(event, status )=> {
         verElectron: () => process.versions.electron,
         hello: () => ipcRenderer.send('send-message', "oi!"),
         openAbout: () => ipcRenderer.send('open-about'),
-        openproduto: ()=> ipcRenderer.send('open-produtos'),
-        openclientes:()=> ipcRenderer.send('open-clientes'),
-        openfornecedor:()=> ipcRenderer.send('open-fornecedor')
+        openprodutos: () => ipcRenderer.send('open-produtos'),
+        openclientes:() => ipcRenderer.send('open-clientes'),
+        openfornecedor:() => ipcRenderer.send('open-fornecedor')
     })
 })
 // Inserir data na página
