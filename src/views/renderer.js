@@ -1,37 +1,24 @@
-// Inserir data na página
-function obterData() {
-    const data = new Date()
-    const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    }
-    return data.toLocaleDateString('pt-br', options)
-}
+/**
+ * processo de renderização do documento index.html
+ *@author Alex Reis
+ */
  
-// interagir diretamente no doom do documento html (index.html)
-window.addEventListener('DOMContentLoaded', () => {
-    const dataAtual = document.getElementById('data').innerHTML =
-    obterData()
-})
-//Função que e executada quando o botao for clicado
-function sobre(){
-    api.openAbout()
-  
-}
-//Função que e executada quando o botao for clicado
-function clientes(){
+ console.log("processo de renderização")
+ 
+ // vinculado ao preoload.js
+ console.log(`Electron: ${api.verElectron()}`)
+ api.hello()
+ 
+ //  função que é executada quando o botão for clicado
+ function sobre() {
+     api.openAbout()
+ }
+ function clientes() {
     api.openclientes()
-  
-}
-//Função que e executada quando o botao for clicado
-function fornecedor(){
-    api.openfornecedor()
-  
-}
-//Função que e executada quando o botao for clicado
-function Produtos(){
+ }
+ function fornecedores() {
+    api.openfornecedores()
+ }
+ function produto() {
     api.openprodutos()
-  
-}
+ }
