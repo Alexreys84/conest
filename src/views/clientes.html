@@ -13,12 +13,11 @@
 <body>
     <div class="container">
         <h1>Clientes</h1>
-        <br>
         <!-- Caixa de input usada na pesquisa de um nome de Cliente-->
         <form class="row g-3" id="frmCliente">
-            <div class="col-md-6"></div>
+            <div class="col-md-6">               
             <input type="text" class="form-control" id="inputSearch" maxlength="30" spellcheck="false">
-
+        </div>
             <!-- Botão de pesquisa de cliente Crud -->
             <div class="col-md-4">
                 <button type="button" class="btn btn-success" id="btnRead">Buscar</button>
@@ -37,7 +36,7 @@
                 <input type="text" class="form-control" id="inputName" required maxlength="30" spellcheck="false">
             </div>
 
-            <!--Telefono do cliente -->
+            <!--Telefone do cliente -->
             <div class="col-md-4">
                 <label for="inputFone" class="form-label">Telefone</label>
                 <input type="text" class="form-control" id="inputFone" required maxlength="15" spellcheck="false">

@@ -62,3 +62,13 @@ footer p {
     border: gray solid 1px;
     color: #000;
 }
+#btnRead {
+    margin-top: -36px;
+}
+#btnCep {
+   
+    margin-top: 32px;
+ }
+ #inputLog{
+    margin-right: -20px;
+ }

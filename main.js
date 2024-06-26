@@ -90,8 +90,8 @@ const fornecedoresWindow = () => {
     if(father){
     if (!fornecedores) {
             fornecedores = new BrowserWindow({
-            width:  800, // largura  da janela
-            height: 600, // altura da janela
+            width:  1280, // largura  da janela
+            height: 720, // altura da janela
             icon: './src/public/img/fornecedores.png',
             resizable: false, // evitar o redimensionamneto
             // titleBarStyle: 'hidden', // esconder barra de titulo e menu
