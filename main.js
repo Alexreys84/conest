@@ -31,7 +31,7 @@ const father = BrowserWindow.getFocusedWindow()
     if(father){
     if (!about) {
             about = new BrowserWindow({
-            width: 640, // largura  da janela
+            width: 450, // largura  da janela
             height: 320, // altura da janela
             icon: './src/public/img/img2.png',
             autoHideMenuBar: true, // esconder o menu(apenas)
@@ -60,8 +60,8 @@ const clientesWindow = () => {
     if(father){
     if (!clientes) {
             clientes = new BrowserWindow({
-            width:  640, // largura  da janela
-            height: 320, // altura da janela
+            width:  800, // largura  da janela
+            height: 600, // altura da janela
             icon: './src/public/img/clientes.png',
             resizable: false, // evitar o redimensionamneto
             // titleBarStyle: 'hidden', // esconder barra de titulo e menu
@@ -90,8 +90,8 @@ const fornecedoresWindow = () => {
     if(father){
     if (!fornecedores) {
             fornecedores = new BrowserWindow({
-            width:  640, // largura  da janela
-            height: 320, // altura da janela
+            width:  800, // largura  da janela
+            height: 600, // altura da janela
             icon: './src/public/img/fornecedores.png',
             resizable: false, // evitar o redimensionamneto
             // titleBarStyle: 'hidden', // esconder barra de titulo e menu
@@ -121,8 +121,8 @@ const produtosWindow = () => {
     if (!produtos) {
            
             produtos = new BrowserWindow({
-            width: 640, // largura  da janela
-            height: 320, // altura da janela
+            width: 800, // largura  da janela
+            height: 600, // altura da janela
             icon: './src/public/img/produtos.png',
             resizable: false, // evitar o redimensionamneto
             // titleBarStyle: 'hidden', // esconder barra de titulo e menu
