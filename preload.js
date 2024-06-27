@@ -6,6 +6,17 @@ const { ipcRenderer, contextBridge } = require('electron')
 ipcRenderer.send('send-message', "status do banco de dados:")
 ipcRenderer.on('db-status', (event, status) => {
     console.log(status)
+<<<<<<< HEAD
+=======
+    contextBridge.exposeInMainWorld('api', {
+        verElectron: () => process.versions.electron,
+        hello: () => ipcRenderer.send('send-message', "oi!"),
+        openAbout: () => ipcRenderer.send('open-about'),
+        openprodutos: () => ipcRenderer.send('open-produtos'),
+        openclientes:() => ipcRenderer.send('open-clientes'),
+        openfornecedor:() => ipcRenderer.send('open-fornecedor')
+    })
+>>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 })
  
 contextBridge.exposeInMainWorld('api', {

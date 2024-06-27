@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- evitar ataques de Cross Site Scripting (injeção de dados)-->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
-    <title>CONEST - controle de estoque</title>
-    <!--css personalizado-->
-    <link rel="stylesheet" href="../public/css/style.css">  
-    <!--bootstrap-->
-      <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-      
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- evitar ataques de Cross Site Scripting (injeção de dados)-->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+  <title>CONEST - controle de estoque</title>
+  <!--css personalizado-->
+  <link rel="stylesheet" href="../public/css/style.css">
+  <!--bootstrap-->
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+
 </head>
+
 <body>
   <div class="container">
     <h1>CONEST</h1>
+<<<<<<< HEAD
     <button class="btn btn-outline-warnig" onclick="clientes()"><img src="../public/img/clientes.png"alt="clientes"></button>
     <button class="btn btn-outline-warnig" onclick="fornecedores()"><img src="../public/img/fornecedor.png"alt="fornecedor"></button>
     <button class="btn btn-outline-warnig" onclick="produto()"><img src="../public/img/produtos.png"alt="produtos"></button>
+=======
+    <button class="btn btn-outline-warnig" onclick="clientes()"><img src="../public/img/clientes.png"
+        alt="clientes"></button>
+    <button class="btn btn-outline-warnig" onclick="fornecedor()"><img src="../public/img/fornecedor.png"
+        alt="fornecedor"></button>
+    <button class="btn btn-outline-warnig" onclick="produtos()"><img src="../public/img/produtos.png"
+        alt="produtos"></button>
+>>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
   </div>
 
-      <!--Rodapé-->
-      <footer> <p id="data"></p>
-      <img src="../public/img/dboff.png"alt="dboff">
-      </footer>
+  <!--Rodapé-->
+  <footer>
+    <p id="data"></p>
+    <img src="../public/img/dboff.png" alt="dboff">
+  </footer>
 
-      <script src="../public/js/bootstrap.min.js"></script>
-    <script src="renderer.js"></script>
-    
+  <script src="../public/js/bootstrap.min.js"></script>
+  <script src="renderer.js"></script>
+
 </body>
+
 </html>

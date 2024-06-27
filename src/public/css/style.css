@@ -1,8 +1,7 @@
-/* esconder o id do Cliente */
 #inputId{
     display: none;
 }
-
+ 
 #btnReset{
     width: 50px;
     height: 50px;
@@ -11,7 +10,7 @@
     border: none;
     margin-left: 30px;
 }
-
+ 
 /*rodapé*/
 footer {
     background-color: #007acc;
@@ -25,25 +24,25 @@ footer {
     position: fixed;
     bottom: 0;
 }
-
+ 
 footer p {
     font-weight: 500;
     color: aliceblue;
     margin: 10px 0px 10px 10px;
-
-
+ 
+ 
 }
-
+ 
 .container1 ul {
     list-style: none;
 }
-
+ 
 .container1 {
     display: flex;
     flex-direction: row;
 }
-
-
+ 
+ 
 .ok {
     display: flex;
     justify-content: right;
@@ -52,7 +51,7 @@ footer p {
     width: 100%;
     padding: 5px 0;
 }
-
+ 
 .okbtn {
     display: flex;
     justify-content: center;
@@ -63,7 +62,7 @@ footer p {
     color: #000;
 }
 #btnRead {
-    margin-top: -36px;
+    margin-top: 1px;
 }
 #btnCep {
    
@@ -72,3 +71,25 @@ footer p {
  #inputLog{
     margin-right: -20px;
  }
+ 
+.Ok {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: #d9d2d2;
+    width: 100%;
+    padding: 5px 0 ;
+}
+ 
+.Okbtn {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    padding: 1px 25px;
+    background-color: #d3d3d3;
+    border: gray solid 1px;
+    color: #000;
+}
+#uf {
+    margin-top: 8px;
+}
