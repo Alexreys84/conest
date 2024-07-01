@@ -5,11 +5,9 @@ const path = require('node:path')
 // importa o módulo de conexão
 const { conectar, desconectar } = require('./database.js')
  
- 
 // janela principal (definir objeto win como variável publica)
 let win
 const createWindow = () => {
-<<<<<<< HEAD
     win = new BrowserWindow({
         width: 800,
         height: 600,
@@ -19,10 +17,9 @@ const createWindow = () => {
         }
     })
     // iniciar a janela com o menu personalizado
-    Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template)) 
  
     win.loadFile('./src/views/index.html')
-=======
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -31,18 +28,14 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
   // iniciar a janela com o menu personalizado
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
   win.loadFile('./src/views/index.html')
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 }
  
 // janela Sobre
-let about // resolver bug de arbertura de várias janelas (bug1) abrir
- 
+let about // resolver bug de arbertura de várias janelas (bug1) abrir 
 const aboutWindow = () => {
-<<<<<<< HEAD
 const father = BrowserWindow.getFocusedWindow()
     if(father){
     if (!about) {
@@ -58,13 +51,11 @@ const father = BrowserWindow.getFocusedWindow()
     }
     }
  
- 
     about.loadFile('./src/views/sobre.html')
     // bug 2 (reabrir a janela se estiver fechada)
     about.on('closed', () => {
         about = null
     })
-=======
   const father = BrowserWindow.getFocusedWindow()
   if (father) {
     // nativeTheme.themeSource = 'dark'
@@ -89,12 +80,9 @@ const father = BrowserWindow.getFocusedWindow()
   about.on('closed', () => {
     about = null
   })
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
-}
- 
+} 
 // janela clientes
 let clientes// resolver bug de arbertura de várias janelas (bug1) abrir
-<<<<<<< HEAD
  
 const clientesWindow = () => {
     // nativeTheme.themeSource = 'dark'
@@ -114,7 +102,6 @@ const clientesWindow = () => {
         })
     }
     }
- 
  
     clientes.loadFile('./src/views/clientes.html')
     // bug 2 (reabrir a janela se estiver fechada)
@@ -143,8 +130,7 @@ const fornecedoresWindow = () => {
             modal: true
         })
     }
-    }
- 
+    } 
  
     fornecedores.loadFile('./src/views/fornecedor.html')
     // bug 2 (reabrir a janela se estiver fechada)
@@ -176,16 +162,13 @@ const produtosWindow = () => {
     }
     }
  
- 
     produtos.loadFile('./src/views/produto.html')
     // bug 2 (reabrir a janela se estiver fechada)
     produtos.on('closed', () => {
         produtos = null
     })
 }
- 
-=======
-const clientesWindow = () => {
+ const clientesWindow = () => {
   const father = BrowserWindow.getFocusedWindow()
   if (father) {
     // nativeTheme.themeSource = 'dark'
@@ -252,7 +235,6 @@ const produtosWindow = () => {
   }
  }
 
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 // iniciar a aplicação
 app.whenReady().then(() => {
  
@@ -265,12 +247,7 @@ app.whenReady().then(() => {
     // desconectar do banco ao encerrar a janela
     app.on('before-quit', async () => {
         await desconectar()
-    })
- 
- 
- 
- 
- 
+    }) 
     createWindow()
  
     app.on('activate', () => {
@@ -360,10 +337,8 @@ const statusConexao = async () => {
         win.webContents.send('db-status', `Erro de conexão: ${error.message}`)
     }
 }
-<<<<<<< HEAD
- 
+
 // exemplo 3: recebimento do renderer de uma ação a ser executada
-=======
 
 ipcMain.on('open-clientes', () => {
   clientesWindow()
@@ -374,7 +349,6 @@ ipcMain.on('open-fornecedor', () => {
 ipcMain.on('open-produto', () => {
   produtosWindow()
 })
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 ipcMain.on('open-about', () => {
     aboutWindow()
 })
