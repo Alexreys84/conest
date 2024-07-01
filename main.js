@@ -5,7 +5,6 @@ const path = require('node:path')
 // importa o módulo de conexão
 const { conectar, desconectar } = require('./database.js')
  
- 
 // janela principal (definir objeto win como variável publica)
 let win
 const createWindow = () => {
@@ -18,14 +17,27 @@ const createWindow = () => {
         }
     })
     // iniciar a janela com o menu personalizado
-    Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template)) 
  
     win.loadFile('./src/views/index.html')
+<<<<<<< HEAD
+=======
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    icon: './src/public/img/img3.png',
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
+  })
+  // iniciar a janela com o menu personalizado
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+  win.loadFile('./src/views/index.html')
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
 }
  
 // janela Sobre
-let about // resolver bug de arbertura de várias janelas (bug1) abrir
- 
+let about // resolver bug de arbertura de várias janelas (bug1) abrir 
 const aboutWindow = () => {
 const father = BrowserWindow.getFocusedWindow()
     if(father){
@@ -42,14 +54,41 @@ const father = BrowserWindow.getFocusedWindow()
     }
     }
  
- 
     about.loadFile('./src/views/sobre.html')
     // bug 2 (reabrir a janela se estiver fechada)
     about.on('closed', () => {
         about = null
     })
+<<<<<<< HEAD
 }
  
+=======
+  const father = BrowserWindow.getFocusedWindow()
+  if (father) {
+    // nativeTheme.themeSource = 'dark'
+    // se a janela about não estiver aberta
+    if (!about) {
+      about = new BrowserWindow({
+        width: 450, // largura  da janela
+        height: 280, // altura da janela
+        icon: './src/public/img/img2.png',
+        resizable: false, // evitar o redimensionamneto
+        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+        autoHideMenuBar: true, // esconder o menu(apenas)
+        parent: father,
+        modal: true
+
+      })
+    }
+  }
+
+  about.loadFile('./src/views/sobre.html')
+  // bug 2 (reabrir a janela se estiver fechada)
+  about.on('closed', () => {
+    about = null
+  })
+} 
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
 // janela clientes
 let clientes// resolver bug de arbertura de várias janelas (bug1) abrir
  
@@ -71,7 +110,6 @@ const clientesWindow = () => {
         })
     }
     }
- 
  
     clientes.loadFile('./src/views/clientes.html')
     // bug 2 (reabrir a janela se estiver fechada)
@@ -100,8 +138,7 @@ const fornecedorWindow = () => {
             modal: true
         })
     }
-    }
- 
+    } 
  
     fornecedor.loadFile('./src/views/fornecedor.html')
     // bug 2 (reabrir a janela se estiver fechada)
@@ -133,18 +170,23 @@ const produtosWindow = () => {
     }
     }
  
- 
     produtos.loadFile('./src/views/produto.html')
     // bug 2 (reabrir a janela se estiver fechada)
     produtos.on('closed', () => {
         produtos = null
     })
 }
+<<<<<<< HEAD
  
 // janela de relatórios
 let relatorios// resolver bug de arbertura de várias janelas (bug1) abrir
  
 const relatoriosWindow = () => {
+=======
+ const clientesWindow = () => {
+  const father = BrowserWindow.getFocusedWindow()
+  if (father) {
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
     // nativeTheme.themeSource = 'dark'
     // se a janela about não estiver aberta
     const father = BrowserWindow.getFocusedWindow()
@@ -172,6 +214,54 @@ const relatoriosWindow = () => {
     })
 }
  
+<<<<<<< HEAD
+=======
+let fornecedor// resolver bug de arbertura de várias janelas (bug1) abrir
+const fornecedorWindow = () => {
+  const father = BrowserWindow.getFocusedWindow()
+  if (father) {
+    // nativeTheme.themeSource = 'dark'
+    // se a janela about não estiver aberta
+    if (!fornecedor) {
+      fornecedor = new BrowserWindow({
+        width: 800, // largura  da janela
+        height: 600, // altura da janela
+        icon: './src/public/img/fornecedor.png',
+        resizable: false, // evitar o redimensionamneto
+        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+        autoHideMenuBar: true, // esconder o menu(apenas)
+        parent: father,
+        modal: true
+
+      })
+      fornecedor.loadFile('./src/views/fornecedor.html')
+    }
+  }
+}
+let produtos // resolver bug de arbertura de várias janelas (bug1) abrir
+const produtosWindow = () => {
+  // nativeTheme.themeSource = 'dark'
+  // se a janela about não estiver aberta
+  if (!produtos) {
+    const father = BrowserWindow.getFocusedWindow()
+    if (father) {
+      produtos = new BrowserWindow({
+        width: 800, // largura  da janela
+        height: 600, // altura da janela
+        icon: './src/public/img/produtos.png',
+        resizable: false, // evitar o redimensionamneto
+        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+        autoHideMenuBar: true, // esconder o menu(apenas)
+        parent: father,
+        modal: true
+
+      })
+      produtos.loadFile('./src/views/produto.html')
+    }
+  }
+ }
+
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
 // iniciar a aplicação
 app.whenReady().then(() => {
  
@@ -184,12 +274,7 @@ app.whenReady().then(() => {
     // desconectar do banco ao encerrar a janela
     app.on('before-quit', async () => {
         await desconectar()
-    })
- 
- 
- 
- 
- 
+    }) 
     createWindow()
  
     app.on('activate', () => {
@@ -288,8 +373,23 @@ const statusConexao = async () => {
         win.webContents.send('db-status', `Erro de conexão: ${error.message}`)
     }
 }
+<<<<<<< HEAD
  
 // exemplo 3: recebimento do renderer de uma ação a ser executada
+=======
+
+// exemplo 3: recebimento do renderer de uma ação a ser executada
+
+ipcMain.on('open-clientes', () => {
+  clientesWindow()
+})
+ipcMain.on('open-fornecedor', () => {
+  fornecedorWindow()
+})
+ipcMain.on('open-produto', () => {
+  produtosWindow()
+})
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
 ipcMain.on('open-about', () => {
     aboutWindow()
 })
@@ -305,7 +405,10 @@ ipcMain.on('open-fornecedor', () => {
 ipcMain.on('open-produtos', () => {
     produtosWindow()
 })
+<<<<<<< HEAD
 // relatorios
 ipcMain.on('open-relatorios', () => {
     relatoriosWindow()
 })
+=======
+>>>>>>> 88be573f65dd3d65a24dca63b03722b07e659465
