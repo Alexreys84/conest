@@ -9,11 +9,10 @@ const { conectar, desconectar } = require('./database.js')
 // janela principal (definir objeto win como variável publica)
 let win
 const createWindow = () => {
-<<<<<<< HEAD
     win = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: './src/public/img/img3.png',
+        icon: './src/public/img/pc.png',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
@@ -22,34 +21,19 @@ const createWindow = () => {
     Menu.setApplicationMenu(Menu.buildFromTemplate(template))
  
     win.loadFile('./src/views/index.html')
-=======
-  win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    icon: './src/public/img/img3.png',
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
-
-  // iniciar a janela com o menu personalizado
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
-  win.loadFile('./src/views/index.html')
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 }
  
 // janela Sobre
 let about // resolver bug de arbertura de várias janelas (bug1) abrir
  
 const aboutWindow = () => {
-<<<<<<< HEAD
 const father = BrowserWindow.getFocusedWindow()
     if(father){
     if (!about) {
             about = new BrowserWindow({
             width: 450, // largura  da janela
             height: 320, // altura da janela
-            icon: './src/public/img/img2.png',
+            icon: './src/public/img/about.png',
             autoHideMenuBar: true, // esconder o menu(apenas)
             resizable: false,
             parent: father,
@@ -64,37 +48,10 @@ const father = BrowserWindow.getFocusedWindow()
     about.on('closed', () => {
         about = null
     })
-=======
-  const father = BrowserWindow.getFocusedWindow()
-  if (father) {
-    // nativeTheme.themeSource = 'dark'
-    // se a janela about não estiver aberta
-    if (!about) {
-      about = new BrowserWindow({
-        width: 450, // largura  da janela
-        height: 280, // altura da janela
-        icon: './src/public/img/img2.png',
-        resizable: false, // evitar o redimensionamneto
-        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
-        autoHideMenuBar: true, // esconder o menu(apenas)
-        parent: father,
-        modal: true
-
-      })
-    }
-  }
-
-  about.loadFile('./src/views/sobre.html')
-  // bug 2 (reabrir a janela se estiver fechada)
-  about.on('closed', () => {
-    about = null
-  })
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 }
  
 // janela clientes
 let clientes// resolver bug de arbertura de várias janelas (bug1) abrir
-<<<<<<< HEAD
  
 const clientesWindow = () => {
     // nativeTheme.themeSource = 'dark'
@@ -124,15 +81,15 @@ const clientesWindow = () => {
 }
  
 // janela fornecedores
-let fornecedores// resolver bug de arbertura de várias janelas (bug1) abrir
+let fornecedor// resolver bug de arbertura de várias janelas (bug1) abrir
  
-const fornecedoresWindow = () => {
+const fornecedorWindow = () => {
     // nativeTheme.themeSource = 'dark'
     // se a janela about não estiver aberta
     const father = BrowserWindow.getFocusedWindow()
     if(father){
-    if (!fornecedores) {
-            fornecedores = new BrowserWindow({
+    if (!fornecedor) {
+            fornecedor = new BrowserWindow({
             width:  1280, // largura  da janela
             height: 720, // altura da janela
             icon: './src/public/img/fornecedores.png',
@@ -146,10 +103,10 @@ const fornecedoresWindow = () => {
     }
  
  
-    fornecedores.loadFile('./src/views/fornecedor.html')
+    fornecedor.loadFile('./src/views/fornecedor.html')
     // bug 2 (reabrir a janela se estiver fechada)
-    fornecedores.on('closed', () => {
-        fornecedores = null
+    fornecedor.on('closed', () => {
+        fornecedor = null
     })
 }
  
@@ -166,7 +123,7 @@ const produtosWindow = () => {
             produtos = new BrowserWindow({
             width: 800, // largura  da janela
             height: 600, // altura da janela
-            icon: './src/public/img/produtos.png',
+            icon: './src/public/img/produto.png',
             resizable: false, // evitar o redimensionamneto
             // titleBarStyle: 'hidden', // esconder barra de titulo e menu
             autoHideMenuBar: true, // esconder o menu(apenas)
@@ -184,75 +141,37 @@ const produtosWindow = () => {
     })
 }
  
-=======
-const clientesWindow = () => {
-  const father = BrowserWindow.getFocusedWindow()
-  if (father) {
+// janela de relatórios
+let relatorios// resolver bug de arbertura de várias janelas (bug1) abrir
+ 
+const relatoriosWindow = () => {
     // nativeTheme.themeSource = 'dark'
     // se a janela about não estiver aberta
-    if (!clientes) {
-      clientes = new BrowserWindow({
-        width: 800, // largura  da janela
-        height: 600, // altura da janela
-        icon: './src/public/img/clientes.png',
-        resizable: false, // evitar o redimensionameto
-        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
-        autoHideMenuBar: true, // esconder o menu(apenas)     
-        parent: father,
-        modal: true
-      })
-
-      clientes.loadFile('./src/views/clientes.html')
+    const father = BrowserWindow.getFocusedWindow()
+    if(father){
+    if (!relatorios) {
+           
+            relatorios = new BrowserWindow({
+            width: 800, // largura  da janela
+            height: 600, // altura da janela
+            icon: './src/public/img/relatorio.png',
+            resizable: false, // evitar o redimensionamneto
+            // titleBarStyle: 'hidden', // esconder barra de titulo e menu
+            autoHideMenuBar: true, // esconder o menu(apenas)
+            parent: father,
+            modal: true
+        })
     }
-  }
+    }
+ 
+ 
+    relatorios.loadFile('./src/views/relatorios.html')
+    // bug 2 (reabrir a janela se estiver fechada)
+    relatorios.on('closed', () => {
+        relatorios = null
+    })
 }
  
-let fornecedor// resolver bug de arbertura de várias janelas (bug1) abrir
-const fornecedorWindow = () => {
-  const father = BrowserWindow.getFocusedWindow()
-  if (father) {
-    // nativeTheme.themeSource = 'dark'
-    // se a janela about não estiver aberta
-    if (!fornecedor) {
-      fornecedor = new BrowserWindow({
-        width: 800, // largura  da janela
-        height: 600, // altura da janela
-        icon: './src/public/img/fornecedor.png',
-        resizable: false, // evitar o redimensionamneto
-        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
-        autoHideMenuBar: true, // esconder o menu(apenas)
-        parent: father,
-        modal: true
-
-      })
-      fornecedor.loadFile('./src/views/fornecedor.html')
-    }
-  }
-}
-let produtos // resolver bug de arbertura de várias janelas (bug1) abrir
-const produtosWindow = () => {
-  // nativeTheme.themeSource = 'dark'
-  // se a janela about não estiver aberta
-  if (!produtos) {
-    const father = BrowserWindow.getFocusedWindow()
-    if (father) {
-      produtos = new BrowserWindow({
-        width: 800, // largura  da janela
-        height: 600, // altura da janela
-        icon: './src/public/img/produtos.png',
-        resizable: false, // evitar o redimensionamneto
-        // titleBarStyle: 'hidden', // esconder barra de titulo e menu
-        autoHideMenuBar: true, // esconder o menu(apenas)
-        parent: father,
-        modal: true
-
-      })
-      produtos.loadFile('./src/views/produto.html')
-    }
-  }
- }
-
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 // iniciar a aplicação
 app.whenReady().then(() => {
  
@@ -291,7 +210,7 @@ const template = [
             },
             {
                 label: 'fornecedores',
-                click: () => fornecedoresWindow()
+                click: () => fornecedorWindow()
             },
             {
                 label: 'produtos',
@@ -334,6 +253,15 @@ const template = [
  
     },
     {
+        label: 'relatorios',
+        submenu: [{
+ 
+           label:'relatorios',
+           click: () => relatoriosWindow()
+        }
+        ]
+    },
+    {
         label: 'ajuda',
         submenu: [{
  
@@ -360,21 +288,8 @@ const statusConexao = async () => {
         win.webContents.send('db-status', `Erro de conexão: ${error.message}`)
     }
 }
-<<<<<<< HEAD
  
 // exemplo 3: recebimento do renderer de uma ação a ser executada
-=======
-
-ipcMain.on('open-clientes', () => {
-  clientesWindow()
-})
-ipcMain.on('open-fornecedor', () => {
-  fornecedorWindow()
-})
-ipcMain.on('open-produto', () => {
-  produtosWindow()
-})
->>>>>>> eb22972eb2fa6f24449cd4170047f926e73c4519
 ipcMain.on('open-about', () => {
     aboutWindow()
 })
@@ -383,10 +298,14 @@ ipcMain.on('open-clientes', () => {
     clientesWindow()
 })
 // fornecedores
-ipcMain.on('open-fornecedores', () => {
-    fornecedoresWindow()
+ipcMain.on('open-fornecedor', () => {
+    fornecedorWindow()
 })
 // produtos
 ipcMain.on('open-produtos', () => {
     produtosWindow()
+})
+// relatorios
+ipcMain.on('open-relatorios', () => {
+    relatoriosWindow()
 })
