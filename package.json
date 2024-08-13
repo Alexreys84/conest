@@ -1,0 +1,26 @@
+{
+  "name": "conest",
+  "version": "1.0.0",
+  "description": "Sistema para gestão de estoque!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexreys84/conest.git"
+  },
+  "author": "Alex dos Reis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alexreys84/conest/issues"
+  },
+  "homepage": "https://github.com/Alexreys84/conest#readme",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  },
+  "dependencies": {
+    "mongoose": "^8.5.2"
+  }
+}
